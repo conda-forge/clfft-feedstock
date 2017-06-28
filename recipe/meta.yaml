@@ -27,6 +27,8 @@ build:
 
 {% if OSX_VARIANT != "native" %}
   skip: True  # [not osx]
+{% else %}
+  skip: True  # [win and py35]
 {% endif %}
 
   features:
