@@ -22,6 +22,7 @@ source:
 
 build:
   number: 2
+  skip: true  # [win and vc<14]
   script_env:
     - OSX_VARIANT
 
