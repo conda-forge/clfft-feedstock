@@ -10,12 +10,12 @@ source:
   url: https://github.com/clMathLibraries/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: e7348c146ad48c6a3e6997b7702202ad3ee3b5df99edf7ef00bbacc21e897b12
   patches:
-    ############################################################
-    # Fix a type issue when using sqrt                         #
-    #                                                          #
-    # xref: https://github.com/clMathLibraries/clFFT/pull/199  #
-    ############################################################
+    # Fix a type issue when using sqrt
+    # xref: https://github.com/clMathLibraries/clFFT/pull/199
     - PR_199.diff
+    # Fix building with C++11
+    # xref: https://github.com/clMathLibraries/clFFT/pull/184
+    - PR_184.diff
 
 build:
   number: 2

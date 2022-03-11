@@ -1,0 +1,24 @@
+From 05a21f45d20e9532cdf811f152ebef60fa99b258 Mon Sep 17 00:00:00 2001
+From: Paul <pfultz2@yahoo.com>
+Date: Sat, 4 Mar 2017 14:55:24 -0600
+Subject: [PATCH] Fix compiliation error with c++11
+
+---
+ src/library/generator.transpose.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/library/generator.transpose.cpp b/src/library/generator.transpose.cpp
+index a04a43ae..03cdbe00 100644
+--- a/src/library/generator.transpose.cpp
++++ b/src/library/generator.transpose.cpp
+@@ -1089,8 +1089,8 @@ clfftStatus genSwapKernelGeneral(const FFTGeneratedTransposeNonSquareAction::Sig
+ 
+ 	//std::string funcName = "swap_nonsquare_" + std::to_string(smaller_dim) + "_" + std::to_string(dim_ratio);
+ 	std::string funcName = "swap_nonsquare_";
+-	std::string smaller_dim_str = static_cast<std::ostringstream*>(&(std::ostringstream() << smaller_dim))->str();
+-	std::string dim_ratio_str = static_cast<std::ostringstream*>(&(std::ostringstream() << dim_ratio))->str();
++	std::string smaller_dim_str = static_cast<const std::ostringstream&>(std::ostringstream() << smaller_dim).str();
++	std::string dim_ratio_str = static_cast<const std::ostringstream&>(std::ostringstream() << dim_ratio).str();
+ 	if(params.fft_N[0] > params.fft_N[1])
+ 		funcName = funcName + smaller_dim_str + "_" + dim_ratio_str;
+ 	else
