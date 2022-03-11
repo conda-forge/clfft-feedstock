@@ -15,7 +15,7 @@ source:
     - PR_199.diff
     # Fix building with C++11
     # xref: https://github.com/clMathLibraries/clFFT/pull/184
-    - PR_184.diff
+    - PR_184.patch
 
 build:
   number: 2
