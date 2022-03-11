@@ -3,14 +3,7 @@
 mkdir build_release
 cd build_release
 
-
-OPENCL_ROOT_FLAG="-DOPENCL_ROOT=${PREFIX}"
-if [[ "`uname`" == "Darwin" ]] && [[ "${OSX_VARIANT}" == "native" ]]
-then
-    OPENCL_ROOT_FLAG="";
-fi
-
-cmake \
+cmake ${CMAKE_ARGS} \
     -G "Unix Makefiles" \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_PREFIX_PATH="${PREFIX}" \
@@ -22,7 +15,8 @@ cmake \
     -DBUILD_CLIENT=0 \
     -DBUILD_CALLBACK_CLIENT=0 \
     -DBUILD_EXAMPLES=0 \
-    "${OPENCL_ROOT_FLAG}" \
+    -DOPENCL_ROOT="${PREFIX}" \
     "${SRC_DIR}/src"
-make
+
+make -j${CPU_COUNT}
 make install
