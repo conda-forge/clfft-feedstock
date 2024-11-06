@@ -18,13 +18,14 @@ source:
     - PR_184.patch
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
     - make
     - cmake
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - libboost-headers
