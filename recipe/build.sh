@@ -6,6 +6,7 @@ cd build_release
 cmake ${CMAKE_ARGS} \
     -G "Unix Makefiles" \
     -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_CXX_STANDARD=14 \
     -DCMAKE_PREFIX_PATH="${PREFIX}" \
     -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
     -DSUFFIX_BIN="" \
